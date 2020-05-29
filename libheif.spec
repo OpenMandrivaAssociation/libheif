@@ -31,7 +31,6 @@ plugins.
 Summary:	Libraries for %{name}
 Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
-Provides:	heif-devel = %{EVRD}
 
 %description -n %{libname}
 %{libname} contains the libraries for %{name}.
@@ -40,6 +39,7 @@ Provides:	heif-devel = %{EVRD}
 Summary:	Development files for %{name}
 Group:		Development/C++
 Requires:	%{libname} = %{EVRD}
+Provides:	heif-devel = %{EVRD}
 
 %description -n %{devname}
 The %{devname} package contains libraries and header files for
@@ -60,6 +60,7 @@ find %{buildroot} -name '*.*a' -delete
 %files
 %doc README.md
 %{_bindir}/*
+%{_libdir}/gdk-pixbuf-*/*/loaders/libpixbufloader-heif.so
 %{_datadir}/mime/packages/heif.xml
 %{_datadir}/thumbnailers/heif.thumbnailer
 %{_mandir}/man1/*.1.*
