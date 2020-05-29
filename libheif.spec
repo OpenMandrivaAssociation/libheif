@@ -12,6 +12,9 @@ URL:		http://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/master/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(libde265)
 BuildRequires:	pkgconfig(x265)
+BuildRequires:	pkgconfig(jpeg)
+BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 Requires:	libde265
 
 %description
@@ -59,6 +62,7 @@ find %{buildroot} -name '*.*a' -delete
 %{_bindir}/*
 %{_datadir}/mime/packages/heif.xml
 %{_datadir}/thumbnailers/heif.thumbnailer
+%{_mandir}/man1/*.1.*
 
 %files -n %{libname}
 %{_libdir}/*%{name}*.so.%{major}*
