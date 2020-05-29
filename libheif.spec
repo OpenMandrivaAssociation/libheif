@@ -12,7 +12,7 @@ URL:		http://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/master/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(libde265)
 BuildRequires:	pkgconfig(x265)
-BuildRequires:	pkgconfig(jpeg)
+BuildRequires:	pkgconfig(libjpeg)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 Requires:	libde265
