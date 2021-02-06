@@ -4,12 +4,12 @@
 
 Summary:	libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 Name:		libheif
-Version:	1.6.2
+Version:	1.11.0
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2 and GPLv2
 URL:		http://www.libheif.org/
-Source0:	https://github.com/strukturag/libheif/archive/master/%{name}-%{version}.tar.gz
+Source0:	https://github.com/strukturag/libheif/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(libde265)
 BuildRequires:	pkgconfig(x265)
 BuildRequires:	pkgconfig(libjpeg)
@@ -45,12 +45,20 @@ Provides:	heif-devel = %{EVRD}
 The %{devname} package contains libraries and header files for
 developing applications that use %{name}.
 
+%package gdk-pixbuf
+Summary:	GDK-Pixbuf plugin for handling HEIF files
+Group:		System/Libraries
+Requires:	%{libname} = %{EVRD}
+
+%description gdk-pixbuf
+GDK-Pixbuf plugin for handling HEIF files
+
 %prep
 %autosetup -p1
-
-%build
 ./autogen.sh
 %configure
+
+%build
 %make_build
 
 %install
@@ -60,10 +68,13 @@ find %{buildroot} -name '*.*a' -delete
 %files
 %doc README.md
 %{_bindir}/*
-%{_libdir}/gdk-pixbuf-*/*/loaders/libpixbufloader-heif.so
+%{_datadir}/mime/packages/avif.xml
 %{_datadir}/mime/packages/heif.xml
 %{_datadir}/thumbnailers/heif.thumbnailer
 %{_mandir}/man1/*.1.*
+
+%files gdk-pixbuf
+%{_libdir}/gdk-pixbuf-*/*/loaders/libpixbufloader-heif.so
 
 %files -n %{libname}
 %{_libdir}/*%{name}*.so.%{major}*
