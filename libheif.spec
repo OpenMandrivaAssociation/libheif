@@ -76,8 +76,8 @@ find %{buildroot} -name '*.*a' -delete
 %files
 %doc README.md
 %{_bindir}/*
-%{_datadir}/mime/packages/avif.xml
-%{_datadir}/mime/packages/heif.xml
+#{_datadir}/mime/packages/avif.xml
+#{_datadir}/mime/packages/heif.xml
 %{_datadir}/thumbnailers/heif.thumbnailer
 %{_mandir}/man1/*.1.*
 
