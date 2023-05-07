@@ -86,8 +86,11 @@ find %{buildroot} -name '*.*a' -delete
 
 %files -n %{libname}
 %{_libdir}/*%{name}*.so.%{major}*
+%{_libdir}/libheif/libheif-rav1e.so
+%{_libdir}/libheif/libheif-svtenc.so
 
 %files -n %{devname}
 %{_includedir}/%{name}/
+%{_libdir}/cmake/libheif/
 %{_libdir}/*%{name}*.so
 %{_libdir}/pkgconfig/libheif.pc
