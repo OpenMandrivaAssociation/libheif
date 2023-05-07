@@ -12,6 +12,7 @@ Group:		System/Libraries
 License:	LGPLv2 and GPLv2
 URL:		http://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/v%{version}/%{name}-%{version}.tar.gz
+BuildRequires:  cmake
 BuildRequires:  pkgconfig(aom)
 BuildRequires:	pkgconfig(libde265)
 BuildRequires:	pkgconfig(SvtAv1Dec)
@@ -63,14 +64,13 @@ GDK-Pixbuf plugin for handling HEIF files
 
 %prep
 %autosetup -p1
-./autogen.sh
-%configure
 
 %build
+%cmake
 %make_build
 
 %install
-%make_install
+%make_install -C build
 find %{buildroot} -name '*.*a' -delete
 
 %files
