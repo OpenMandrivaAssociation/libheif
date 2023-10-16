@@ -6,21 +6,24 @@
 
 Summary:	libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 Name:		libheif
-Version:	1.16.2
-Release:	2
+Version:	1.17.0
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2 and GPLv2
 URL:		http://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  cmake
 BuildRequires:  pkgconfig(aom)
+BuildRequires:  pkgconfig(libsharpyuv)
 BuildRequires:	pkgconfig(libde265)
 BuildRequires:	pkgconfig(SvtAv1Dec)
 BuildRequires:	pkgconfig(SvtAv1Enc)
 BuildRequires:	pkgconfig(dav1d)
+#BuildRequires:  pkgconfig(kvazaar)
 BuildRequires:	pkgconfig(rav1e)
 BuildRequires:	pkgconfig(x265)
 BuildRequires:	pkgconfig(libjpeg)
+BuildRequires:  pkgconfig(libopenjp2)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 Requires:	libde265
@@ -66,7 +69,20 @@ GDK-Pixbuf plugin for handling HEIF files
 %autosetup -p1
 
 %build
-%cmake
+%cmake  \
+         -DWITH_RAV1E=ON \
+	 -DWITH_DAV1D=ON \
+	 -DWITH_JPEG_DECODER=ON \
+	 -DWITH_JPEG_ENCODER=ON \
+	 -DWITH_OpenJPEG_DECODER=ON \
+	 -DWITH_OpenJPEG_ENCODER=ON \
+         -DWITH_KVAZAAR=OFF \
+         -DWITH_FFMPEG_DECODER=ON \
+         -DWITH_AOM_ENCODER=ON \
+         -DWITH_AOM_DECODER=ON \
+         -DWITH_SvtEnc=ON \
+         -DWITH_X265=ON \
+         -DWITH_LIBDE265=ON
 %make_build
 
 %install
@@ -76,8 +92,6 @@ find %{buildroot} -name '*.*a' -delete
 %files
 %doc README.md
 %{_bindir}/*
-#{_datadir}/mime/packages/avif.xml
-#{_datadir}/mime/packages/heif.xml
 %{_datadir}/thumbnailers/heif.thumbnailer
 %{_mandir}/man1/*.1.*
 
@@ -88,6 +102,9 @@ find %{buildroot} -name '*.*a' -delete
 %{_libdir}/*%{name}*.so.%{major}*
 %{_libdir}/libheif/libheif-rav1e.so
 %{_libdir}/libheif/libheif-svtenc.so
+%{_libdir}/libheif/libheif-dav1d.so
+%{_libdir}/libheif/libheif-j2kdec.so
+%{_libdir}/libheif/libheif-j2kenc.so
 
 %files -n %{devname}
 %{_includedir}/%{name}/
