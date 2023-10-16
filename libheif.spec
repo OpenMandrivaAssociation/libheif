@@ -77,7 +77,7 @@ GDK-Pixbuf plugin for handling HEIF files
 	 -DWITH_JPEG_ENCODER=ON \
 	 -DWITH_OpenJPEG_DECODER=ON \
 	 -DWITH_OpenJPEG_ENCODER=ON \
-         -DWITH_KVAZAAR=OFF \
+         -DWITH_KVAZAAR=ON \
          -DWITH_FFMPEG_DECODER=ON \
          -DWITH_AOM_ENCODER=ON \
          -DWITH_AOM_DECODER=ON \
