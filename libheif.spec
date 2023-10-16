@@ -19,7 +19,7 @@ BuildRequires:	pkgconfig(libde265)
 BuildRequires:	pkgconfig(SvtAv1Dec)
 BuildRequires:	pkgconfig(SvtAv1Enc)
 BuildRequires:	pkgconfig(dav1d)
-BuildRequires:  pkgconfig(kvazaar)
+#BuildRequires:  pkgconfig(kvazaar)
 BuildRequires:	pkgconfig(rav1e)
 BuildRequires:	pkgconfig(x265)
 BuildRequires:	pkgconfig(libjpeg)
@@ -71,12 +71,12 @@ GDK-Pixbuf plugin for handling HEIF files
 %build
 %cmake  \
          -DWITH_RAV1E=ON \
-	       -DWITH_DAV1D=ON \
-	       -DWITH_JPEG_DECODER=ON \
-	       -DWITH_JPEG_ENCODER=ON \
-	       -DWITH_OpenJPEG_DECODER=ON \
-	       -DWITH_OpenJPEG_ENCODER=ON \
-         -DWITH_KVAZAAR=ON \
+	 -DWITH_DAV1D=ON \
+	 -DWITH_JPEG_DECODER=ON \
+	 -DWITH_JPEG_ENCODER=ON \
+	 -DWITH_OpenJPEG_DECODER=ON \
+	 -DWITH_OpenJPEG_ENCODER=ON \
+         -DWITH_KVAZAAR=OFF \
          -DWITH_FFMPEG_DECODER=ON \
          -DWITH_AOM_ENCODER=ON \
          -DWITH_AOM_DECODER=ON \
