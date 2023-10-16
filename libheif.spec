@@ -13,14 +13,15 @@ License:	LGPLv2 and GPLv2
 URL:		http://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  cmake
+BuildRequires:	ffmpeg-devel
 BuildRequires:  pkgconfig(aom)
 BuildRequires:  pkgconfig(libsharpyuv)
 BuildRequires:	pkgconfig(libde265)
 BuildRequires:	pkgconfig(SvtAv1Dec)
 BuildRequires:	pkgconfig(SvtAv1Enc)
 BuildRequires:	pkgconfig(dav1d)
-BuildRequires:  pkgconfig(kvazaar)
-BuildRequires:	kvazaar
+#BuildRequires:  pkgconfig(kvazaar)
+#BuildRequires:	kvazaar
 BuildRequires:	pkgconfig(rav1e)
 BuildRequires:	pkgconfig(x265)
 BuildRequires:	pkgconfig(libjpeg)
@@ -77,7 +78,7 @@ GDK-Pixbuf plugin for handling HEIF files
 	 -DWITH_JPEG_ENCODER=ON \
 	 -DWITH_OpenJPEG_DECODER=ON \
 	 -DWITH_OpenJPEG_ENCODER=ON \
-         -DWITH_KVAZAAR=ON \
+         -DWITH_KVAZAAR=OFF \
          -DWITH_FFMPEG_DECODER=ON \
          -DWITH_AOM_ENCODER=ON \
          -DWITH_AOM_DECODER=ON \
