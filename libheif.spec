@@ -12,6 +12,7 @@ Group:		System/Libraries
 License:	LGPLv2 and GPLv2
 URL:		http://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0:		https://github.com/strukturag/libheif/commit/ef7a6eb5262cda2ffcf6ff53475d950296e45881.patch
 BuildRequires:  cmake
 BuildRequires:	ffmpeg-devel
 BuildRequires:  pkgconfig(aom)
