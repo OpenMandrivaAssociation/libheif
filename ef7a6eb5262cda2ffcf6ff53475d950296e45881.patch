@@ -1,0 +1,44 @@
+From ef7a6eb5262cda2ffcf6ff53475d950296e45881 Mon Sep 17 00:00:00 2001
+From: Dirk Farin <dirk.farin@gmail.com>
+Date: Mon, 16 Oct 2023 16:07:59 +0200
+Subject: [PATCH] cmake: fix detection of kvazaar struct member (#990)
+
+---
+ CMakeLists.txt                  | 4 +++-
+ cmake/modules/Findkvazaar.cmake | 3 ++-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1f658a47cb..fcc809753e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -112,10 +112,12 @@ endif()
+ plugin_option(KVAZAAR "kvazaar HEVC encoder" OFF OFF)
+ if (WITH_KVAZAAR)
+     find_package(kvazaar)
+-    if (HAVE_KVAZAAR_ENABLE_LOGGING)
++    if ("${HAVE_KVAZAAR_ENABLE_LOGGING}")
+         add_definitions(-DHAVE_KVAZAAR_ENABLE_LOGGING=1)
++        message("HAVE KV")
+     else ()
+         add_definitions(-DHAVE_KVAZAAR_ENABLE_LOGGING=0)
++        message("DONT HAVE KV")
+     endif ()
+ endif ()
+ 
+diff --git a/cmake/modules/Findkvazaar.cmake b/cmake/modules/Findkvazaar.cmake
+index f5d1ad9d8e..ab1dc531ff 100644
+--- a/cmake/modules/Findkvazaar.cmake
++++ b/cmake/modules/Findkvazaar.cmake
+@@ -18,9 +18,10 @@ set(KVAZAAR_PROCESS_LIBS KVAZAAR_LIBRARY)
+ set(KVAZAAR_PROCESS_INCLUDES KVAZAAR_INCLUDE_DIR)
+ libfind_process(KVAZAAR)
+ 
++set(CMAKE_REQUIRED_INCLUDES ${KVAZAAR_INCLUDE_DIR})
+ CHECK_STRUCT_HAS_MEMBER("struct kvz_config" enable_logging_output kvazaar.h
+                         HAVE_KVAZAAR_ENABLE_LOGGING LANGUAGE CXX)
+-set(HAVE_KVAZAAR_ENABLE_LOGGING HAVE_KVAZAAR_ENABLE_LOGGING)
++unset(CMAKE_REQUIRED_INCLUDES)
+ 
+ include(FindPackageHandleStandardArgs)
+ find_package_handle_standard_args(kvazaar
