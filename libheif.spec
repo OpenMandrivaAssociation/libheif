@@ -92,8 +92,6 @@ find %{buildroot} -name '*.*a' -delete
 %files
 %doc README.md
 %{_bindir}/*
-#{_datadir}/mime/packages/avif.xml
-#{_datadir}/mime/packages/heif.xml
 %{_datadir}/thumbnailers/heif.thumbnailer
 %{_mandir}/man1/*.1.*
 
@@ -104,6 +102,9 @@ find %{buildroot} -name '*.*a' -delete
 %{_libdir}/*%{name}*.so.%{major}*
 %{_libdir}/libheif/libheif-rav1e.so
 %{_libdir}/libheif/libheif-svtenc.so
+%{_libdir}/libheif/libheif-dav1d.so
+%{_libdir}/libheif/libheif-j2kdec.so
+%{_libdir}/libheif/libheif-j2kenc.so
 
 %files -n %{devname}
 %{_includedir}/%{name}/
