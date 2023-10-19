@@ -6,13 +6,13 @@
 
 Summary:	libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 Name:		libheif
-Version:	1.17.0
-Release:	2
+Version:	1.17.1
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2 and GPLv2
 URL:		http://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/v%{version}/%{name}-%{version}.tar.gz
-Patch0:		https://github.com/strukturag/libheif/commit/ef7a6eb5262cda2ffcf6ff53475d950296e45881.patch
+
 BuildRequires:  cmake
 BuildRequires:	ffmpeg-devel
 BuildRequires:  pkgconfig(aom)
