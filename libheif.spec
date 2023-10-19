@@ -1,3 +1,5 @@
+# Workaround for crappy LLD 17.X
+%global build_ldflags %{build_ldflags} -Wl,--undefined-version
 %global optflags %{optflags} -O3
 
 %define major 1
