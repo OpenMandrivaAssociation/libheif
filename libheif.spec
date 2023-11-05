@@ -1,5 +1,5 @@
 # Workaround for crappy LLD 17.X
-%global build_ldflags %{build_ldflags} -Wl,--undefined-version
+#global build_ldflags %{build_ldflags} -Wl,--undefined-version
 %global optflags %{optflags} -O3
 
 %define major 1
@@ -8,7 +8,7 @@
 
 Summary:	libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 Name:		libheif
-Version:	1.17.1
+Version:	1.17.3
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2 and GPLv2
