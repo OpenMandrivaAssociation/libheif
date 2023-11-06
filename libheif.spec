@@ -1,19 +1,19 @@
-# Workaround for crappy LLD 17.X
-#global build_ldflags %{build_ldflags} -Wl,--undefined-version
 %global optflags %{optflags} -O3
 
 %define major 1
-%define libname %mklibname heif %{major}
+%define oldlibname %mklibname heif 1
+%define libname %mklibname heif
 %define devname %mklibname heif -d
 
 Summary:	libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 Name:		libheif
 Version:	1.17.3
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	LGPLv2 and GPLv2
 URL:		http://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0:		libheif-link-libavutil.patch
 
 BuildRequires:  cmake
 BuildRequires:	ffmpeg-devel
@@ -48,6 +48,7 @@ plugins.
 Summary:	Libraries for %{name}
 Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
+%rename %{oldlibname}
 
 %description -n %{libname}
 %{libname} contains the libraries for %{name}.

@@ -1,0 +1,13 @@
+diff -up libheif-1.17.3/CMakeLists.txt.omv~ libheif-1.17.3/CMakeLists.txt
+--- libheif-1.17.3/CMakeLists.txt.omv~	2023-11-06 16:16:56.947915601 +0100
++++ libheif-1.17.3/CMakeLists.txt	2023-11-06 16:18:23.758665968 +0100
+@@ -174,7 +174,7 @@ endif()
+ 
+ plugin_option(FFMPEG_DECODER "FFMPEG HEVC decoder (HW accelerated)" OFF OFF)
+ if (WITH_FFMPEG_DECODER)
+-    find_package(FFMPEG COMPONENTS avcodec)
++    find_package(FFMPEG COMPONENTS avcodec avutil)
+ endif ()
+ 
+ # uncompressed
+diff -up libheif-1.17.3/libheif/plugins/CMakeLists.txt.omv~ libheif-1.17.3/libheif/plugins/CMakeLists.txt
