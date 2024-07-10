@@ -13,8 +13,8 @@ Group:		System/Libraries
 License:	LGPLv2 and GPLv2
 URL:		http://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/v%{version}/%{name}-%{version}.tar.gz
-Patch0:		libheif-link-libavutil.patch
-Patch1:		https://github.com/strukturag/libheif/commit/a911b26a902c5f89fee2dc20ac4dfaafcb8144ec.patch
+#Patch0:		libheif-link-libavutil.patch
+#Patch1:		https://github.com/strukturag/libheif/commit/a911b26a902c5f89fee2dc20ac4dfaafcb8144ec.patch
 
 BuildRequires:  cmake
 BuildRequires:	ffmpeg-devel
