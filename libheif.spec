@@ -32,6 +32,7 @@ BuildRequires:  pkgconfig(libopenjp2)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libvvdec)
 BuildRequires:	pkgconfig(libvvenc)
+BuildRequires:	vvdec
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 Requires:	libde265
 Requires:	x265
@@ -117,6 +118,7 @@ find %{buildroot} -name '*.*a' -delete
 %{_libdir}/libheif/libheif-dav1d.so
 %{_libdir}/libheif/libheif-j2kdec.so
 %{_libdir}/libheif/libheif-j2kenc.so
+%{_libdir}/libheif/libheif-jphenc.so
 
 %files -n %{devname}
 %{_includedir}/%{name}/
