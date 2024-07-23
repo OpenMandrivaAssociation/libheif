@@ -33,6 +33,7 @@ BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(libvvdec)
 BuildRequires:	pkgconfig(libvvenc)
 BuildRequires:	vvdec
+BuildRequires:	pkgconfig(uvg266)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 Requires:	libde265
 Requires:	x265
@@ -95,7 +96,8 @@ GDK-Pixbuf plugin for handling HEIF files
          -DWITH_X265=ON \
          -DWITH_LIBDE265=ON \
 	 -DWITH_VVDEC=ON \
-  	 -DWITH_VVENC=ON
+  	 -DWITH_VVENC=ON \
+    	 -DWITH_UVG266=ON
 %make_build
 
 %install
