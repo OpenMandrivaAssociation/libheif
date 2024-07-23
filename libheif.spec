@@ -8,10 +8,10 @@
 Summary:	libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 Name:		libheif
 Version:	1.18.1
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	LGPLv2 and GPLv2
-URL:		http://www.libheif.org/
+URL:		https://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  cmake
@@ -26,9 +26,12 @@ BuildRequires:  pkgconfig(kvazaar)
 BuildRequires:	kvazaar
 BuildRequires:	pkgconfig(rav1e)
 BuildRequires:	pkgconfig(x265)
+BuildRequires:	pkgconfig(openjph)
 BuildRequires:	pkgconfig(libjpeg)
 BuildRequires:  pkgconfig(libopenjp2)
 BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(libvvdec)
+BuildRequires:	pkgconfig(libvvenc)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 Requires:	libde265
 Requires:	x265
@@ -81,13 +84,17 @@ GDK-Pixbuf plugin for handling HEIF files
 	 -DWITH_JPEG_ENCODER=ON \
 	 -DWITH_OpenJPEG_DECODER=ON \
 	 -DWITH_OpenJPEG_ENCODER=ON \
+  	 -DWITH_OPENJPH_ENCODER=ON \
+    	 -DWITH_OPENJPH_DECODER=ON \
          -DWITH_KVAZAAR=ON \
          -DWITH_FFMPEG_DECODER=ON \
          -DWITH_AOM_ENCODER=ON \
          -DWITH_AOM_DECODER=ON \
          -DWITH_SvtEnc=ON \
          -DWITH_X265=ON \
-         -DWITH_LIBDE265=ON
+         -DWITH_LIBDE265=ON \
+	 -DWITH_VVDEC=ON \
+  	 -DWITH_VVENC=ON
 %make_build
 
 %install
