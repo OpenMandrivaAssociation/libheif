@@ -7,8 +7,8 @@
 
 Summary:	libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 Name:		libheif
-Version:	1.18.2
-Release:	5
+Version:	1.19.1
+Release:	1
 Group:		System/Libraries
 License:	LGPLv2 and GPLv2
 URL:		https://www.libheif.org/
