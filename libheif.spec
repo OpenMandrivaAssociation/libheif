@@ -8,13 +8,14 @@
 Summary:	libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 Name:		libheif
 Version:	1.20.2
-Release:	102
+Release:	100
 Group:		System/Libraries
 License:	LGPLv2 and GPLv2
 URL:		https://www.libheif.org/
 Source0:	https://github.com/strukturag/libheif/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires:  cmake
+BuildRequires:	make
 BuildRequires:	ffmpeg-devel
 BuildRequires:  pkgconfig(aom)
 BuildRequires:  pkgconfig(libsharpyuv)
@@ -25,6 +26,7 @@ BuildRequires:  pkgconfig(kvazaar)
 BuildRequires:	kvazaar
 BuildRequires:	pkgconfig(rav1e)
 BuildRequires:	pkgconfig(x265)
+BuildRequires:	pkgconfig(x264)
 BuildRequires:	pkgconfig(openjph)
 BuildRequires:	pkgconfig(libjpeg)
 BuildRequires:  pkgconfig(libopenjp2)
@@ -36,6 +38,7 @@ BuildRequires:	pkgconfig(uvg266)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 Requires:	libde265
 Requires:	x265
+Requires:	x264
 
 %description
 libheif is an ISO/IEC 23008-12:2017 HEIF file format decoder and encoder.
@@ -93,6 +96,7 @@ GDK-Pixbuf plugin for handling HEIF files
          -DWITH_AOM_DECODER=ON \
          -DWITH_SvtEnc=ON \
          -DWITH_X265=ON \
+		 -DWITH_X264=ON \
          -DWITH_LIBDE265=ON \
 	 -DWITH_VVDEC=ON \
   	 -DWITH_VVENC=ON \
