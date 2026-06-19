@@ -41,7 +41,6 @@ Requires:	x265
 Requires:	x264
 
 %patchlist
-https://github.com/strukturag/libheif/pull/1680.patch
 
 %description
 libheif is an ISO/IEC 23008-12:2017 HEIF file format decoder and encoder.
