@@ -7,8 +7,8 @@
 
 Summary:	libheif is a ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 Name:		libheif
-Version:	1.23.0
-Release:	101
+Version:	1.23.1
+Release:	100
 Group:		System/Libraries
 License:	LGPLv2 and GPLv2
 URL:		https://www.libheif.org/
@@ -98,7 +98,7 @@ GDK-Pixbuf plugin for handling HEIF files
          -DWITH_AOM_DECODER=ON \
          -DWITH_SvtEnc=ON \
          -DWITH_X265=ON \
-		 -DWITH_X264=ON \
+	 -DWITH_X264=ON \
          -DWITH_LIBDE265=ON \
 	 -DWITH_VVDEC=ON \
   	 -DWITH_VVENC=ON \
